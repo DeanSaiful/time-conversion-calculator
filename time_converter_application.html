@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Time Converter Application</title>
+</head>
+<body>
+    <h1>Time Conversion Calculator</h1>
+
+    <div class="mainContainer">
+        <h3>Convert Time</h3>
+
+        <label for="fromValue" class="conMargin">Value to Convert:</label>
+        <div class="inputContainer">
+            <input type="number" id="fromValue">
+        </div>
+
+        <table class="conMargin">
+            <tr>
+                <td><label for="from">From:</label></td>
+                <td>
+                    <select id="from">
+                        <option value="days">Days</option>
+                        <option value="hours">Hours</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="seconds">Seconds</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="to">To:</label></td>
+                <td>
+                    <select id="to">
+                        <option value="days">Days</option>
+                        <option value="hours">Hours</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="seconds">Seconds</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <div class="actButton">
+            <button onclick="clearInput()">Clear</button>
+            <button onclick="convert()">Convert</button>
+        </div>
+
+        <div class="ansContainer">
+            <label for="answer" >Answer:</label>
+            <table class="answerTable">
+                <tr>
+                    <th>
+                        <div id="result"></div>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        function convert() {
+          var value = document.getElementById("fromValue").value;
+          var fromUnit = document.getElementById("from").value;
+          var toUnit = document.getElementById("to").value;
+          var result;
+    
+          if (fromUnit === toUnit) {
+            result = value + " " + toUnit;
+          } else if (fromUnit === "days") {
+            result = convertDays(value, toUnit);
+          } else if (fromUnit === "hours") {
+            result = convertHours(value, toUnit);
+          } else if (fromUnit === "minutes") {
+            result = convertMinutes(value, toUnit);
+          } else if (fromUnit === "seconds") {
+            result = convertSeconds(value, toUnit);
+          }
+    
+          document.getElementById("result").innerHTML = result;
+        }
+    
+        function convertDays(value, toUnit) {
+          if (toUnit === "hours") {
+            return value + " days = " + value * 24 + " hours";
+          } else if (toUnit === "minutes") {
+            return value + " days = " + value * 24 * 60 + " minutes";
+          } else if (toUnit === "seconds") {
+            return value + " days = " + value * 24 * 60 * 60 + " seconds";
+          } else {
+            return value + " days";
+          }
+        }
+    
+        function convertHours(value, toUnit) {
+          if (toUnit === "days") {
+            return value + " hours = " + value / 24 + " days";
+          } else if (toUnit === "minutes") {
+            return value + " hours = " + value * 60 + " minutes";
+          } else if (toUnit === "seconds") {
+            return value + " hours = " + value * 60 * 60 + " seconds";
+          } else {
+            return value + " hours";
+          }
+        }
+    
+        function convertMinutes(value, toUnit) {
+          if (toUnit === "days") {
+            return value + " minutes = " + value / (24 * 60) + " days";
+          } else if (toUnit === "hours") {
+            return value + " minutes = " + value / 60 + " hours";
+          } else if (toUnit === "seconds") {
+            return value + " minutes = " + value * 60 + " seconds";
+          } else {
+            return value + " minutes";
+          }
+        }
+    
+        function convertSeconds(value, toUnit) {
+          if (toUnit === "days") {
+            return value + " seconds = " + value / (24 * 60 * 60) + " days";
+          } else if (toUnit === "hours") {
+            return value + " seconds = " + value / (60 * 60) + " hours";
+          } else if (toUnit === "minutes") {
+            return value + " seconds = " + value / 60 + " minutes";
+          } else {
+            return value + " seconds";
+          }
+        }
+    
+        function clearInput() {
+          document.getElementById("fromValue").value = "";
+          document.getElementById("result").innerHTML = "";
+        }
+    
+    
+        // Enable conversion on pressing Enter key
+        document.getElementById("fromValue").addEventListener("keyup", function(event) {
+          if (event.keyCode === 13) {
+            convert();
+          }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+body {
+    background-color: antiquewhite;
+}
+
+.mainContainer {
+    width: 400px;
+    height: 500px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContainer h3 {
+    background-color: lightcoral;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.conMargin{
+    display: flex;
+    margin: 10px 5px 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    width: 50%;
+    height: 20px;
+}
+
+select{
+    width: 100px;
+    height: 20px;
+}
+
+.actButton{
+    margin: 10px 60px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    padding: 6px 20px;
+    border-radius: 5px;
+    border: 1px solid #878787;
+    cursor: pointer;
+}
+
+.ansContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.answerTable{
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 70%;
+    height: 50px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+
+
+
+
