@@ -35,7 +35,3 @@ The Time Conversion Calculator allows you to convert time values between days, h
 ## Contributing
 
 Contributions are welcome! If you find any bugs or want to add new features, please submit an issue or a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
